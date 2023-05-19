@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { BsArrowDown } from 'react-icons/bs';
 import { useState } from 'react';
 import Slider from '../Slider/Slider';
+import Navbar from '../../Navbar/Navbar';
 
 
 const Header = () => {
@@ -12,17 +13,20 @@ const Header = () => {
     const toggleSubmenu = () => {
         setSubmenuOpen(!submenuOpen);
     };
+
+    const handleLogOut=()=>{
+
+    }
     return (
         <>
-            <div className='sticky top-0 z-50 bg-white'>
+        <Navbar></Navbar>
+            {/* <div className=' z-50 bg-white'>
 
                 <div className='h-4 bg-teal-500 '></div>
                 <div className=' pt-1 md:my-3 px-12 w-11/12 mx-auto'>
                     <div className="navbar h-24 flex md:flex-row flex-col justify-between gap-6">
-                        {/* <div> */}
+                        
                             <NavLink to='/'><img src={logo} className=" w-56 py-1" /></NavLink>
-
-                        {/* </div> */}
 
 
                         <div className="navbar w-full mt-8 md:mt-0 ">
@@ -91,9 +95,9 @@ const Header = () => {
                         <div className=" mt-12 md:mt-0">
                             <div className="flex items-center">
                                 <div className="dropdown dropdown-end ">
-                                    <NavLink className="btn btn-outline btn-xs border-none underline rounded-none hover:bg-white my-3 mx-2 me-4">
-                                        <div className="indicator text-teal-600 text-sm hover:text-orange-500 ">
-                                            NEw here ?
+                                    <NavLink to='/register' className="btn btn-outline btn-xs border-none underline rounded-none hover:bg-white my-3 mx-2 me-4">
+                                        <div className="indicator text-teal-600 text-sm  uppercase tracking-tighter hover:text-orange-500 ">
+                                        New here ?
                                         </div>
                                     </NavLink>
                                 </div>
@@ -103,7 +107,7 @@ const Header = () => {
                                             <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                                         </div>
                                     </label>
-                                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-1 p-2 shadow text-teal-600 font-semibold w-52">
+                                    <ul tabIndex={0} className="menu menu-compact bg-white dropdown-content mt-1 p-2 shadow text-teal-600 font-semibold w-52">
                                         {/* <li>
                                         <a className="justify-between">
                                             Profile
@@ -111,16 +115,16 @@ const Header = () => {
                                         </a>
                                     </li> */}
                                         {/* <li><a>Settings</a></li> */}
-                                        <NavLink><a>Logout</a></NavLink>
+                                        {/* <button onClick={handleLogOut}><a>Logout</a></button>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className='h-4 bg-teal-500 '></div>
+                <div className='h-2 bg-teal-500 '></div>
 
-            </div>
+            </div> */} 
             <div className=''>
                 <Slider ></Slider>
             </div>

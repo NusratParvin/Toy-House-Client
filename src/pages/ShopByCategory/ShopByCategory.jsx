@@ -14,7 +14,7 @@ const ShopByCategory = () => {
     return (
         <div className='w-10/12 mx-auto'>
 
-
+<h1></h1>
             <Tabs>
                 <TabList className="flex justify-center border-b border-gray-200">
                     <Tab selectedClassName='bg-orange-500 text-white '
