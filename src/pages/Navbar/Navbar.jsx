@@ -54,7 +54,7 @@ const Navbar = () => {
                     My Toys
                     <BsArrowDown className='ms-1'></BsArrowDown>
                     {submenuOpen && (
-                        <div className="bg-orange-50 w-full z-40 absolute md:pt-3 top-full  left-0 text-teal-600 py-2 text-center md:px-1  ">
+                        <div className="bg-teal-50 w-full z-40 absolute md:pt-3 top-full  left-0 text-teal-600 py-2 text-center md:px-1  ">
                             <NavLink
                                 to="/subpage1"
                                 className="block text-sm border-teal-600 hover:text-orange-500 hover:border-dashed hover:border-y-2 mx-0 px-4 py-1 hover:duration-200 mb-2"

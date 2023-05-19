@@ -11,52 +11,52 @@ import { useEffect } from 'react';
 const Gallery = () => {
     useEffect(() => {
         AOS.init();
-      }, [])
+    }, [])
     return (
         <div>
             <div className="w-full mx-auto px-5 py-16 mb-10 lg:px-32 lg:pt-24">
-               <h1 className='text-4xl text-zinc-600  tracking-tighter py-4 mb-6 text-center font-bold'>What We Have In Stock</h1>
+                <h1 className='text-4xl text-zinc-600  tracking-tighter py-4 mb-6 text-center font-bold'>What We Have In Stock</h1>
                 <div className="-m-1 flex flex-wrap md:-m-2">
                     <div className="flex w-1/2 flex-wrap">
                         <div className="w-1/2 p-1 md:p-1" data-aos='fade-right'
-                        data-aos-offset="100"
-                        data-aos-easing="ease-in-sine">
+                            data-aos-offset="100"
+                            data-aos-easing="ease-in-sine">
                             <img
                                 className="block h-full w-full  object-cover object-center"
-                                src={img1}/>
+                                src={img1} />
                         </div>
                         <div className="w-1/2 p-1 md:p-1" data-aos='fade-up' data-aos-offset="200"
-     data-aos-easing="ease">
+                            data-aos-easing="ease">
                             <img
                                 className="block h-full w-full object-cover object-center"
-                                src={img2}/>
+                                src={img2} />
                         </div>
                         <div className="w-full p-1 md:p-1" data-aos="fade-right"
-     data-aos-offset="250"
-     data-aos-easing="ease-in-sine">
+                            data-aos-offset="250"
+                            data-aos-easing="ease-in-sine">
                             <img
                                 className="block h-full w-full object-cover object-center"
                                 src={img4} />
                         </div>
                     </div>
                     <div className="flex w-1/2 flex-wrap">
-                        <div className="w-full p-1 md:p-1 "  data-aos="fade-left"
-     data-aos-offset="350"
-     data-aos-easing="ease-in">
+                        <div className="w-full p-1 md:p-1 " data-aos="fade-left"
+                            data-aos-offset="350"
+                            data-aos-easing="ease-in">
                             <img
                                 className="block h-full w-full object-cover object-center"
-                                src={img3}/>
+                                src={img3} />
                         </div>
-                        <div className="w-1/2 p-1 md:p-1"  data-aos="zoom-in-up"
-     data-aos-offset="100"
-     data-aos-easing="ease-in-sine">
+                        <div className="w-1/2 p-1 md:p-1" data-aos="zoom-in-up"
+                            data-aos-offset="100"
+                            data-aos-easing="ease-in-sine">
                             <img
                                 className="block h-full w-full object-cover object-center"
                                 src={img5} />
                         </div>
                         <div className="w-1/2 p-1 md:p-1" data-aos="fade-up-left"
-     data-aos-offset="100"
-     data-aos-easing="ease-in-sine">
+                            data-aos-offset="100"
+                            data-aos-easing="ease-in-sine">
                             <img
                                 className="block h-full w-full object-cover object-center"
                                 src={img6} />
