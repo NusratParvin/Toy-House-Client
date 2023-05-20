@@ -1,21 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
 // import cloud from '../../../assets/pattern.png'
 import logo from '../../assets/1.jpg'
 import { NavLink } from 'react-router-dom';
 import { BsArrowDown } from 'react-icons/bs';
 import { useState } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Navbar = () => {
     const [submenuOpen, setSubmenuOpen] = useState(false);
+    const { user, logOut, loggedIn, setLoggedIn } = useContext(AuthContext);
+    if(user){
+        setLoggedIn(true)
+        console.log(user,loggedIn);
+    }
+    console.log(user, 'header');
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                setLoggedIn(false)
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+    console.log( user,loggedIn );
 
     const toggleSubmenu = () => {
         setSubmenuOpen(!submenuOpen);
     };
 
 
-    const handleLogOut=()=>{
 
-    }
     return (
         <div>
             <div className=' z-50 bg-white'>
@@ -94,16 +110,34 @@ const Navbar = () => {
             <div className="flex items-center">
                 <div className="dropdown dropdown-end ">
                     <NavLink to='/register' className="btn btn-outline btn-xs border-none underline rounded-none hover:bg-white my-3 mx-2 me-4">
-                        <div className="indicator text-teal-600 text-sm  uppercase tracking-tighter hover:text-orange-500 ">
+                        <div  className="indicator text-teal-600 text-sm  uppercase tracking-tighter hover:text-orange-500 ">
                         New here ?
                         </div>
                     </NavLink>
                 </div>
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle border-4 avatar">
-                        <div className="w-10 rounded-full">
-                            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        <div className="w-10 rounded-full  transition duration-150 ease-in-out ">
+                            {/* <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" data-te-toggle="tooltip"
+                                    title={user?.displayName} src={user?.photoURL} /> */}
+                      
+                      {user &&( 
+                        user?.photoURL ?
+                    
+                        <img  data-te-toggle="tooltip"
+                        title={user?.displayName} src={user?.photoURL} />
+                        
+                        :
+                        <FaUserCircle data-te-toggle="tooltip"
+                        title={user?.displayName} style={{ fontSize: '2.5rem' }}></FaUserCircle>)
+
+                    }
+                      
                         </div>
+
+                        
+
+
                     </label>
                     <ul tabIndex={0} className="menu menu-compact bg-white dropdown-content mt-1 p-2 shadow text-teal-600 font-semibold w-52">
                         {/* <li>

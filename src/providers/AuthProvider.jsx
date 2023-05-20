@@ -7,6 +7,7 @@ import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
+console.log(auth);
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
