@@ -34,11 +34,11 @@ const ShopByCategory = () => {
     };
 
     return (
-        <div className='w-10/12 mx-auto'>
+        <div className='w-10/12 mx-auto py-12'>
 
-            <h1></h1>
+            <h1 className='text-3xl font-bold text-zinc-600 text-center tracking-tighter uppercase py-12'>Shop by Category</h1>
             <Tabs selectedTab={activeTab} onSelect={handleTabSelect}>
-                <TabList className="flex justify-center border-b border-gray-200">
+                <TabList className="flex justify-center border-b border-teal-100">
                     <Tab selectedClassName='bg-orange-500 text-white '
                         className="text-orange-500 text-lg font-semibold py-2 px-16 
                         hover:text-white hover:bg-orange-400 cursor-pointer"
@@ -59,7 +59,7 @@ const ShopByCategory = () => {
                 </TabList>
 
                 <TabPanel>
-                    <div className='grid grid-cols-3 bg-blue-50 p-4 gap-2'>
+                    <div className='grid md:grid-cols-3 grid-cols-1 bg-blue-50 p-4 gap-2'>
                         {tabData.map((singleCar, index) => (
 
                             <SortedToy key={index} singleCar={singleCar} ></SortedToy>

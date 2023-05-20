@@ -14,6 +14,7 @@ const Login = () => {
     const [successMessage, setSuccessMessage] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
     const from = location.state?.from?.pathname || '/'
+    console.log(location.state?.from?.pathname);
 
     const handleLogin = event => {
         event.preventDefault();
