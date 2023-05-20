@@ -55,15 +55,13 @@ const Navbar = () => {
                                     Home
                                 </NavLink>
                                 <NavLink
-                                    to="/about"
+                                    to="/allToys"
                                     className="text-teal-600 text-center font-semibold text-lg mx-2 hover:text-black-300 relative border-teal-600 hover:text-orange-500 hover:border-dashed hover:border-y-2 px-3 py-1 hover:duration-200 "
                                     activeClassName="font-bold border-y-2 border-teal-600 "
                                 >
                                     All Toys
                                 </NavLink>
-                                <NavLink
-                                    exact
-                                    to="/"
+                                <NavLink  to="/"
                                     className="bg-white text-teal-600 text-lg font-semibold  mx-2 hover:text-black-300 relative border-teal-600 hover:text-orange-500 hover:border-dashed hover:border-y-2 px-3 py-1 hover:duration-200 flex items-center justify-center"
                                     activeClassName="font-bold border-y-2 border-teal-600 text-orange-500"
                                     onMouseEnter={toggleSubmenu}
@@ -74,14 +72,14 @@ const Navbar = () => {
                                     {submenuOpen && (
                                         <div className="bg-teal-50 w-full z-40 absolute md:pt-3 top-full  left-0 text-teal-600 py-2 text-center md:px-1  ">
                                             <NavLink
-                                                to="/subpage1"
+                                                to="/myToys"
                                                 className="block text-sm border-teal-600 hover:text-orange-500 hover:border-dashed hover:border-y-2 mx-0 px-4 py-1 hover:duration-200 mb-2"
                                                 activeClassName="font-bold"
                                             >
                                                 My Toys
                                             </NavLink>
                                             <NavLink
-                                                to="/subpage2"
+                                                to="/addNew"
                                                 className=" block text-sm border-teal-600 hover:text-orange-500 hover:border-dashed hover:border-y-2 mx-0 py-1 px-4 hover:duration-200"
                                                 activeClassName="font-bold"
                                             >
@@ -91,14 +89,14 @@ const Navbar = () => {
                                     )}
                                 </NavLink>
                                 <NavLink
-                                    to="/about"
+                                    to="/blog"
                                     className="text-teal-600 font-semibold text-lg mx-2 hover:text-black-300 relative border-teal-600 hover:text-orange-500 hover:border-dashed hover:border-y-2 px-3 py-1 hover:duration-200 "
                                     activeClassName="font-bold border-t-2 border-y-2 border-teal-600 "
                                 >
                                     Blog
                                 </NavLink>
                                 <NavLink
-                                    to="/contact"
+                                    to="/about"
                                     className="text-teal-600 font-semibold text-lg mx-2 hover:text-black-300 relative border-teal-600 hover:text-orange-500 hover:border-dashed hover:border-y-2 px-3 py-1 hover:duration-200 "
                                     activeClassName="font-bold border-t-2 border-y-2 border-teal-600 "
                                 >
