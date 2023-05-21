@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
-import Modal from './Modal';
-import './css.css'
+
 import { NavLink } from 'react-router-dom';
-// import Modal from 'react-modal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const MyToys = () => {
@@ -54,6 +54,7 @@ const MyToys = () => {
                 console.log(data);
                 
                 if(data.deletedCount>0){
+                
                     toast.success('Successfully deleted car !', {
                         position: toast.POSITION.TOP_RIGHT
                     });                    
