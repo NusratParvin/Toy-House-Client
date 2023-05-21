@@ -54,7 +54,7 @@ const Navbar = () => {
                                 >
                                     Home
                                 </NavLink>
-                                <NavLink
+                                <NavLink 
                                     to="/allToys"
                                     className="text-teal-600 text-center font-semibold text-lg mx-2 hover:text-black-300 relative border-teal-600 hover:text-orange-500 hover:border-dashed hover:border-y-2 px-3 py-1 hover:duration-200 "
                                     activeClassName="font-bold border-y-2 border-teal-600 "

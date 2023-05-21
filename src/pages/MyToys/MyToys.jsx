@@ -1,13 +1,22 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import Modal from './Modal';
+import './css.css'
+import { NavLink } from 'react-router-dom';
+// import Modal from 'react-modal';
+
 
 const MyToys = () => {
     const {user} = useContext(AuthContext)
     const [myToys,setMyToys]=useState([])
 
+
+    const [showModal, setShowModal] = useState(false);
+
+
     useEffect(()=>{
         try{
-            fetch(`http://localhost:5000/myToys/seller@gmail.com`)
+            fetch(`http://localhost:5000/myToys/${user?.email}`)
             .then(res=>res.json())
             .then(data=>{
                 console.log(data);
@@ -17,7 +26,49 @@ const MyToys = () => {
         catch{
             err=>console.log(err)
         }
-    },[user])
+    },[user,myToys])
+
+
+    const handleEdit=(id)=>{
+        try{
+            fetch(`http://localhost:5000/myToys/${id}`,{
+                method:'PUT'
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data);
+                setMyToys(data)
+            })
+        }
+        catch{
+            err=>console.log(err)
+        }
+        }
+    const handleDelete=(id)=>{
+        try{
+            fetch(`http://localhost:5000/allCars/${id}`,{
+                method:'DELETE'
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data);
+                
+                if(data.deletedCount>0){
+                    toast.success('Successfully deleted car !', {
+                        position: toast.POSITION.TOP_RIGHT
+                    });                    
+                    const remaining = myToys.filter(toy=>toy._id!== id)
+                    setMyToys(remaining)
+                }
+            })
+               
+        }
+        catch{
+            err=>console.log(err)
+        }
+
+    }
+
     return (
         <div className=' bg-teal-50 pb-24'>
             {/* <div className='pt-8 pb-4 ml-auto mr-32 flex md:justify-end justify-center gap-2'>
@@ -73,15 +124,28 @@ const MyToys = () => {
                                                 <div class="flex item-center justify-center">
 
                                                     <div class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                        <NavLink to={`/updateToy/${singleToyData._id}`}>
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                                         </svg>
+                                                        </NavLink>
+
+
+                
+
+
+
+
                                                     </div>
-                                                    <div class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                    
+                                                    <div  onClick={()=>handleDelete(singleToyData._id)} class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                    
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                                         </svg>
+                                                        
                                                     </div>
+                                                
                                                 </div>
                                             </td>
                                         </tr>

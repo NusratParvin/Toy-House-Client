@@ -9,7 +9,7 @@ const SortedToy = ({ singleCar }) => {
                 <figure className='p-4 h-44'>
                     <img data-aos="zoom-in"
                         data-aos-delay="50"
-                        data-aos-easing="ease-in" src={picture_url} alt="Shoes" />
+                        data-aos-easing="ease-in" src={picture_url} alt="car img" />
                 </figure>
                 <div className="card-body text-center">
                     <h2 className="card-title mx-auto text-lg" data-aos="fade-up"

@@ -60,7 +60,7 @@ const ShopByCategory = () => {
 
                 <TabPanel>
                     <div className='grid md:grid-cols-3 grid-cols-1 bg-blue-50 p-4 gap-2'>
-                        {tabData.map((singleCar, index) => (
+                        {tabData.slice(0,8).map((singleCar, index) => (
 
                             <SortedToy key={index} singleCar={singleCar} ></SortedToy>
 
