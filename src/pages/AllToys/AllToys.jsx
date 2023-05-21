@@ -59,7 +59,9 @@ const AllToys = () => {
 
     return (
         <div className=' bg-teal-50 pb-24'>
-            <div className='pt-8 pb-4 ml-auto mr-32 flex md:justify-end justify-center gap-2'>
+                            <h1 className='text-2xl font-bold text-zinc-700 text-center pt-6 uppercase'>All Toys</h1>
+
+            <div className='pt-2 pb-4 ml-auto mr-32 flex md:justify-end justify-center gap-2'>
                 <input onChange={(event) => setSearchText(event.target.value)}
                     className='w-56 text-sm py-4 px-2 text-zinc-700 bg-gray-300' type="search" placeholder='Search by name ' />
                 <button onClick={handleSearch} className='btn btn-accent btn-sm px-6 rounded-none text-zinc-700 hover:text-white'>Search</button>

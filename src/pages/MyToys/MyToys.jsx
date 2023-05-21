@@ -91,11 +91,12 @@ const MyToys = () => {
             <div className=' bg-teal-50 pb-24'>
 
                 <h1 className='text-2xl font-bold text-zinc-700 text-center py-6 uppercase'>My Toys</h1>
-                <div className='pt-8 pb-4 ml-auto mr-32 flex md:justify-end justify-center gap-2'>
+                <div className='pt-0 pb-4 ml-auto mr-32 flex md:justify-end justify-center gap-2 '>
                 {/* <input
                     className='w-56 text-sm py-4 px-2 text-zinc-700 bg-gray-300' type="search" placeholder='Search by name ' />
                 <button  className='btn btn-accent btn-sm px-6 rounded-none text-zinc-700 hover:text-white'>Search</button> */}
-                <select   onChange={handleSort} >
+                <p className='font-semibold text-sm'>Sort By Price</p>
+                <select className='text-xs py-1 px-2 '  onChange={handleSort} >
                     <option value="ascending">Ascending</option>
                     <option value="descending">Descending</option>
                 </select>

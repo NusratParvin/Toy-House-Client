@@ -54,40 +54,46 @@ const Navbar = () => {
                                 >
                                     Home
                                 </NavLink>
-                                <NavLink 
+                                <NavLink
                                     to="/allToys"
                                     className="text-teal-600 text-center font-semibold text-lg mx-2 hover:text-black-300 relative border-teal-600 hover:text-orange-500 hover:border-dashed hover:border-y-2 px-3 py-1 hover:duration-200 "
                                     activeClassName="font-bold border-y-2 border-teal-600 "
                                 >
                                     All Toys
                                 </NavLink>
-                                <NavLink  to=""
-                                    className="bg-white text-teal-600 text-lg font-semibold  mx-2 hover:text-black-300 relative border-teal-600 hover:text-orange-500 hover:border-dashed hover:border-y-2 px-3 py-1 hover:duration-200 flex items-center justify-center"
-                                    activeClassName="font-bold border-y-2 border-teal-600 text-orange-500"
-                                    onMouseEnter={toggleSubmenu}
-                                    onMouseLeave={toggleSubmenu}
-                                >
-                                    My Toys
-                                    <BsArrowDown className='ms-1'></BsArrowDown>
-                                    {submenuOpen && (
-                                        <div className="bg-teal-50 w-full z-40 absolute md:pt-3 top-full  left-0 text-teal-600 py-2 text-center md:px-1  ">
-                                            <NavLink
-                                                to="/myToys"
-                                                className="block text-sm border-teal-600 hover:text-orange-500 hover:border-dashed hover:border-y-2 mx-0 px-4 py-1 hover:duration-200 mb-2"
-                                                activeClassName="font-bold" 
-                                            >
-                                                My Toys
-                                            </NavLink>
-                                            <NavLink
-                                                to="/addNew"
-                                                className=" block text-sm border-teal-600 hover:text-orange-500 hover:border-dashed hover:border-y-2 mx-0 py-1 px-4 hover:duration-200"
-                                                activeClassName="font-bold"
-                                            >
-                                                Add New
-                                            </NavLink>
-                                        </div>
-                                    )}
-                                </NavLink>
+
+                                {
+                                    user && <NavLink to=""
+                                        className="bg-white text-teal-600 text-lg font-semibold  mx-2 hover:text-black-300 relative border-teal-600 hover:text-orange-500 hover:border-dashed hover:border-y-2 px-3 py-1 hover:duration-200 flex items-center justify-center"
+                                        activeClassName="font-bold border-y-2 border-teal-600 text-orange-500"
+                                        onMouseEnter={toggleSubmenu}
+                                        onMouseLeave={toggleSubmenu}
+                                    >
+                                        My Toys
+                                        <BsArrowDown className='ms-1'></BsArrowDown>
+                                        {submenuOpen && (
+                                            <div className="bg-teal-50 w-full z-40 absolute md:pt-3 top-full  left-0 text-teal-600 py-2 text-center md:px-1  ">
+                                                <NavLink
+                                                    to="/myToys"
+                                                    className="block text-sm border-teal-600 hover:text-orange-500 hover:border-dashed hover:border-y-2 mx-0 px-4 py-1 hover:duration-200 mb-2"
+                                                    activeClassName="font-bold"
+                                                >
+                                                    My Toys
+                                                </NavLink>
+                                                <NavLink
+                                                    to="/addNew"
+                                                    className=" block text-sm border-teal-600 hover:text-orange-500 hover:border-dashed hover:border-y-2 mx-0 py-1 px-4 hover:duration-200"
+                                                    activeClassName="font-bold"
+                                                >
+                                                    Add New
+                                                </NavLink>
+                                            </div>
+                                        )}
+                                    </NavLink>
+                                }
+
+
+
                                 <NavLink
                                     to="/blog"
                                     className="text-teal-600 font-semibold text-lg mx-2 hover:text-black-300 relative border-teal-600 hover:text-orange-500 hover:border-dashed hover:border-y-2 px-3 py-1 hover:duration-200 "
@@ -115,38 +121,37 @@ const Navbar = () => {
                                         </div>
                                     </NavLink>
                                 </div>
+
+
                                 <div className="dropdown dropdown-end">
-                                    <label tabIndex={0} className="btn btn-ghost btn-circle border-4 avatar">
-                                        <div className="w-10 rounded-full  transition duration-150 ease-in-out ">
-                                            {/* <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" data-te-toggle="tooltip"
-                                    title={user?.displayName} src={user?.photoURL} /> */}
+                                    { user?
+                                        <>
+                                            <label tabIndex={0} className="btn btn-ghost btn-circle border-4 avatar">
+                                                <div className="w-10 rounded-full  transition duration-150 ease-in-out ">
+                                                    {user && (
+                                                        user?.photoURL ?
 
-                                            {user && (
-                                                user?.photoURL ?
+                                                            <img data-te-toggle="tooltip" title={user?.displayName} src={user?.photoURL} />
 
-                                                    <img data-te-toggle="tooltip" title={user?.displayName} src={user?.photoURL} />
+                                                            :
+                                                            <FaUserCircle data-te-toggle="tooltip" title={user?.displayName} style={{ fontSize: '2.5rem' }}></FaUserCircle>)
+                                                    }
 
-                                                    :
-                                                    <FaUserCircle data-te-toggle="tooltip" title={user?.displayName} style={{ fontSize: '2.5rem' }}></FaUserCircle>)
+                                                </div>
 
-                                            }
-
+                                            </label>
+                                            <ul tabIndex={0} className="menu menu-compact bg-white dropdown-content mt-1 p-2 shadow text-teal-600 font-semibold w-52">
+                                                {/* <li><a>Settings</a></li> */}
+                                                <button onClick={handleLogOut}><a>Logout</a></button>
+                                            </ul>
+                                        </>
+                                        :
+                                        <NavLink to='/login' className="btn btn-outline btn-xs border-none underline rounded-none hover:bg-white my-3 mx-2 me-4">
+                                        <div className="indicator text-teal-600 text-sm  uppercase tracking-tighter hover:text-orange-500 ">
+                                            Just Login
                                         </div>
-
-
-
-
-                                    </label>
-                                    <ul tabIndex={0} className="menu menu-compact bg-white dropdown-content mt-1 p-2 shadow text-teal-600 font-semibold w-52">
-                                        {/* <li>
-                        <a className="justify-between">
-                            Profile
-                            <span className="badge">New</span>
-                        </a>
-                    </li> */}
-                                        {/* <li><a>Settings</a></li> */}
-                                        <button onClick={handleLogOut}><a>Logout</a></button>
-                                    </ul>
+                                    </NavLink>
+                                    }
                                 </div>
                             </div>
                         </div>
