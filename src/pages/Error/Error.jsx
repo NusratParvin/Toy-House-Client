@@ -1,10 +1,12 @@
 import { NavLink, useRouteError } from 'react-router-dom';
 import errorImage from '../../assets/error.gif';
+import useTitle from '../../hook/useTitle';
 
 const Error = () => {
+    useTitle('ErrorPage')
     const { error, status } = useRouteError()
     // console.log(error.message,'err');
-    console.log(error,'err');
+    console.log(error,status,'err');
 
     return (
         <div>

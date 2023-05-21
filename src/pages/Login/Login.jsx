@@ -5,9 +5,10 @@ import { Form, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { BsGithub } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import { AuthContext } from '../../providers/AuthProvider';
+import useTitle from '../../hook/useTitle';
 
 const Login = () => {
-
+    useTitle('Login')
     const { signIn, setLoggedIn, googleSignIn, githubSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();

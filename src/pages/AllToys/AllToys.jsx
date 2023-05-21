@@ -1,12 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../hook/useTitle';
+
 
 const AllToys = () => {
+    useTitle('All Toys')
     const [allToyData, setAllToyData] = useState([])
     const [searchText, setSearchText] = useState("");
     const navigate = useNavigate()
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const from = location.state?.from?.pathname || '/'
 
 
@@ -17,33 +22,38 @@ const AllToys = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
+                    
                     setAllToyData(data)
                 })
         }
         catch {
-            err => {console.log(err);}
+            err => { console.log(err); }
         }
 
     }, [])
 
-    const handleSearch=()=>{console.log(searchText);
+    const handleSearch = () => {
+        console.log(searchText);
         console.log(user);
         try {
             fetch(`http://localhost:5000/cars/${searchText}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
+                    toast.success('Search Complete !', {
+                        position: toast.POSITION.TOP_RIGHT
+                    });
                     setAllToyData(data)
                 })
         }
         catch {
-            err => {console.log(err);}
+            err => { console.log(err); }
         }
     }
 
 
-    const handleView=(id)=>{
-            navigate(`/toyDetails/${id}`)    
+    const handleView = (id) => {
+        navigate(`/toyDetails/${id}`)
     }
 
 
@@ -51,7 +61,7 @@ const AllToys = () => {
         <div className=' bg-teal-50 pb-24'>
             <div className='pt-8 pb-4 ml-auto mr-32 flex md:justify-end justify-center gap-2'>
                 <input onChange={(event) => setSearchText(event.target.value)}
-                 className='w-56 text-sm py-4 px-2 text-zinc-700 bg-gray-300' type="search" placeholder='Search by name ' />
+                    className='w-56 text-sm py-4 px-2 text-zinc-700 bg-gray-300' type="search" placeholder='Search by name ' />
                 <button onClick={handleSearch} className='btn btn-accent btn-sm px-6 rounded-none text-zinc-700 hover:text-white'>Search</button>
             </div>
 
@@ -100,7 +110,7 @@ const AllToys = () => {
                                             </td>
                                             <td class="py-3 px-6 text-center">
                                                 <div class="flex item-center justify-center">
-                                                    <div onClick={()=>handleView(singleToyData._id)} class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
+                                                    <div onClick={() => handleView(singleToyData._id)} class="w-4 mr-2 transform hover:text-orange-500 hover:scale-110">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />

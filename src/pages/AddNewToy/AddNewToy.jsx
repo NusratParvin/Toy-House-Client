@@ -4,10 +4,11 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { BsArrowDown } from 'react-icons/bs';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../hook/useTitle';
 
 
 const AddNewToy = () => {
-
+    useTitle('Add Toy')
     const { user } = useContext(AuthContext)
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -39,8 +40,12 @@ const AddNewToy = () => {
     }
 
     return (
-        <div className='text-black w-1/2 mx-auto mt-6 border p-6'>
-            <form onSubmit={handleSubmit(onSubmit)} class="w-full max-w-lg">
+        <>
+                        <h1 className='text-2xl font-bold text-zinc-700 text-center pt-6 uppercase'>Add new toy</h1>
+
+         <div className='text-black w-1/2 mx-auto mt-6 mb-12 border p-6'>
+            
+            <form onSubmit={handleSubmit(onSubmit)} class="w-full ">
                 <div class="flex flex-wrap -mx-3 mb-0 ">
                     <div class="w-full md:w-1/2 px-3 mb-1 md:mb-0">
                         <label class="block uppercase   mt-0 pt-0 text-gray-700 text-xs font-bold mb-1">
@@ -82,14 +87,14 @@ const AddNewToy = () => {
                         <label class="block uppercase   mt-0 pt-0 text-gray-700 text-xs font-bold mb-1">
                             Seller Name
                         </label>
-                        <input class="appearance-none block w-full text-sm bg-gray-200 text-gray-700 py-3 px-4 mb-1 leading-tight "
+                        <input class="appearance-none block w-full text-sm bg-gray-200 text-gray-700 py-3 px-4 mb-1 leading-tight " 
                             type="text" defaultValue={user?.displayName} {...register("seller_name")} />
                     </div>
                     <div class="w-full md:w-1/2 px-3">
                         <label class="block uppercase    mt-0 pt-0 text-gray-700 text-xs font-bold mb-1">
                             SEller Email
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 text-sm py-3 px-4 leading-tight " type="email"
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 text-sm py-3 px-4 leading-tight " type="email" 
                             defaultValue={user?.email} {...register("seller_email")} />
                     </div>
                 </div>
@@ -125,9 +130,22 @@ const AddNewToy = () => {
                     </div>
                 </div>
 
+                <div class="flex flex-wrap -mx-3 mb-0 ">
+                    <div class="w-full px-3 ">
+                        <label class="block uppercase   text-gray-700 text-xs font-bold mt-3 mb-1" >
+                            Description
+                        </label>
+                        <textarea class="appearance-none block w-full bg-gray-200 text-sm text-gray-700 py-3 px-4 mb-1 leading-tight " type='text'
+                              {...register("description")}  cols="20" rows="4"></textarea>
+                        {/* <input/> */}
+                    </div>
+                </div>
+
                 <input className='mt-6 bg-teal-600 text-white font-semibold' type="submit" />
             </form>
         </div>
+        </>
+       
     );
 };
 

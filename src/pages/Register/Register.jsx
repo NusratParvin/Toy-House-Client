@@ -3,9 +3,10 @@ import img from '../../assets/8603-profile.gif'
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import useTitle from '../../hook/useTitle';
 
 const Register = () => {
-
+    useTitle('Register')
     const { createNewUser, logOut } = useContext(AuthContext);
     const navigate = useNavigate()
     const [errorMessage,setErrorMessage]=useState('')
