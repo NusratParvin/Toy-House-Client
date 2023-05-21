@@ -16,7 +16,7 @@ const ShopByCategory = () => {
         console.log(tabName);
         try {
             console.log(tabName);
-            const response = await fetch(`http://localhost:5000/allCars/${tabName}`);
+            const response = await fetch(`https://toy-house-server-beige.vercel.app/allCars/${tabName}`);
             const data = await response.json();
             setTabData(data);
             console.log(data, 'tab data');

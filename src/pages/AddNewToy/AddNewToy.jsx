@@ -14,7 +14,7 @@ const AddNewToy = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
         try{
-            fetch('http://localhost:5000/addCar',
+            fetch('https://toy-house-server-beige.vercel.app/addCar',
             {
                 method:'POST',
                 headers:{

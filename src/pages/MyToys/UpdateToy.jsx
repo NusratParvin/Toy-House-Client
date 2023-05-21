@@ -18,7 +18,7 @@ const UpdateToy = () => {
     const [dataToUpdate, setDataToUpdate] = useState([])
     useEffect(() => {
         try {
-            fetch(`http://localhost:5000/carDetails/${id.id}`)
+            fetch(`https://toy-house-server-beige.vercel.app/carDetails/${id.id}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
@@ -33,7 +33,7 @@ const UpdateToy = () => {
     const onSubmit = data => {
         console.log(data);
         try {
-            fetch(`http://localhost:5000/updateToy/${id.id}`, {
+            fetch(`https://toy-house-server-beige.vercel.app/updateToy/${id.id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),
@@ -60,7 +60,7 @@ const UpdateToy = () => {
     return (
 
 
-        <div className='text-black w-1/2 mx-auto mt-6 border p-6'>
+        <div className='text-black w-1/2 mx-auto mt-6 border p-6 min-h-screen'>
             <form onSubmit={handleSubmit(onSubmit)} class="w-full max-w-lg">
                 <div class="flex flex-wrap -mx-3 mb-0 ">
 
@@ -75,7 +75,7 @@ const UpdateToy = () => {
                         <label class="block uppercase    mt-0 pt-0 text-gray-700 text-xs font-bold mb-1" for="grid-last-name">
                             Sub-Category
                         </label>
-                        {/* <input class="appearance-none block w-full bg-gray-200 text-gray-700  py-3 px-4 leading-tight " type="text" placeholder="Category" {...register("category")}/> */}
+                        
                         <select className="text-input appearance-none block w-full bg-gray-200 text-gray-700  py-1 px-4 leading-tight" defaultValue={dataToUpdate.category} {...register("category", { required: true })}>
                             <option value="Sports Car">Sports Car</option>
                             <option value="Fire Truck">Fire Truck</option>
@@ -89,8 +89,8 @@ const UpdateToy = () => {
                         <label class="block uppercase   text-gray-700 text-xs font-bold mt-3 mb-1" >
                             Id
                         </label>
-                        <input class="appearance-none block w-full bg-gray-100 text-sm text-gray-500 py-3 px-4 mb-1 leading-tight " disabled type='text'
-                            defaultValue={dataToUpdate._id} {...register("_id")} />
+                        <input class="appearance-none block w-full bg-gray-100 text-sm text-gray-500 py-3 px-4 mb-1 leading-tight "  type='text' readOnly  {...register("_id", { required: true })}  value={dataToUpdate._id} 
+                           />
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-0 ">
@@ -108,15 +108,14 @@ const UpdateToy = () => {
                         <label class="block uppercase   mt-0 pt-0 text-gray-700 text-xs font-bold mb-1">
                             Seller Name
                         </label>
-                        <input class="appearance-none block w-full text-sm bg-gray-200 text-gray-700 py-3 px-4 mb-1 leading-tight " disabled
-                            type="text" defaultValue={dataToUpdate.seller_name} {...register("seller_name")} />
+                        <input class="appearance-none block w-full text-sm bg-gray-200 text-gray-700 py-3 px-4 mb-1 leading-tight " 
+                           type="text"  {...register("seller_name", { required: true })} readOnly value={dataToUpdate.seller_name} />
                     </div>
                     <div class="w-full md:w-1/2 px-3">
                         <label class="block uppercase    mt-0 pt-0 text-gray-700 text-xs font-bold mb-1">
-                            SEller Email
+                            Seller Email
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 text-sm py-3 px-4 leading-tight " type="email" disabled
-                            defaultValue={dataToUpdate.seller_email} {...register("seller_email")} />
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 text-sm py-3 px-4 leading-tight " type="email" readOnly {...register("seller_email", { required: true })}  value={dataToUpdate.seller_email}/>
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-0 ">

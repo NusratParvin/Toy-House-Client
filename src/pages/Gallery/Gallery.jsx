@@ -14,7 +14,7 @@ const Gallery = () => {
     }, [])
     return (
         <div>
-            <div className="w-full mx-auto px-5 py-16 mb-10 lg:px-32 lg:pt-24">
+            <div className="w-full mx-auto px-5 py-12 mb-10 lg:px-32 lg:pt-24">
                 <h1 className='text-3xl text-zinc-600  tracking-tighter py-4 mb-6 text-center font-bold'>What We Have In Stock</h1>
                 <div className="-m-1 flex flex-wrap md:-m-2">
                     <div className="flex w-1/2 flex-wrap">

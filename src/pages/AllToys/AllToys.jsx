@@ -18,7 +18,7 @@ const AllToys = () => {
     useEffect(() => {
 
         try {
-            fetch('http://localhost:5000/allCars')
+            fetch('https://toy-house-server-beige.vercel.app/allCars')
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
@@ -36,7 +36,7 @@ const AllToys = () => {
         console.log(searchText);
         console.log(user);
         try {
-            fetch(`http://localhost:5000/cars/${searchText}`)
+            fetch(`https://toy-house-server-beige.vercel.app/cars/${searchText}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);

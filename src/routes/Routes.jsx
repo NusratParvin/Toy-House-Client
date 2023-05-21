@@ -52,13 +52,13 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <ToyDetails></ToyDetails>
         </PrivateRoute>,
-          loader: ({ params }) => fetch(`http://localhost:5000/carDetails/${params.id}`)
-      }, 
+        loader: ({ params }) => fetch(`https://toy-house-server-beige.vercel.app/carDetails/${params.id}`)
+      },
       {
         path: '/updateToy/:id',
-        element: <UpdateToy></UpdateToy> ,
-          // loader: ({ params }) => fetch(`http://localhost:5000/carDetails/${params.id}`)
-      }, 
+        element: <UpdateToy></UpdateToy>,
+        // loader: ({ params }) => fetch(`https://toy-house-server-beige.vercel.app/carDetails/${params.id}`)
+      },
       {
         path: '/allToys',
         element: <AllToys></AllToys>

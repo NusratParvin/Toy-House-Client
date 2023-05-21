@@ -17,7 +17,7 @@ const MyToys = () => {
 
     useEffect(() => {
         try {
-            fetch(`http://localhost:5000/myToys?email=${user?.email}`)
+            fetch(`https://toy-house-server-beige.vercel.app/myToys?email=${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
@@ -43,7 +43,7 @@ const MyToys = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 try {
-                    fetch(`http://localhost:5000/allCars/${id}`, {
+                    fetch(`https://toy-house-server-beige.vercel.app/allCars/${id}`, {
                         method: 'DELETE'
                     })
                         .then(res => res.json())
@@ -75,7 +75,7 @@ const MyToys = () => {
             console.log(order);
 
             try {
-                fetch(`http://localhost:5000/myToys?email=${user.email}&order=${order}`)
+                fetch(`https://toy-house-server-beige.vercel.app/myToys?email=${user.email}&order=${order}`)
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
