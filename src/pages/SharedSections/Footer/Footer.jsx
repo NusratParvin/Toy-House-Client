@@ -47,7 +47,7 @@ const Footer = () => {
 
 
             <div className="footer items-center px-16 py-8 bg-teal-600 text-white flex flex-col">
-                <div className='flex justify-between gap-30 w-1/2 text-zinc-200 my-2'>
+                <div className='flex md:flex-row flex-col justify-between gap-30 w-1/2 text-zinc-200 my-2'>
                     <div>
                         <h2 className='font-semibold text-base pb-3'>Contact Us</h2>
                         <p className='text-sm'>Call US : +223 444 555</p>

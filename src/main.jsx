@@ -11,6 +11,7 @@ import AuthProvider from './providers/AuthProvider';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
+  
     <AuthProvider>
       <RouterProvider router={router} />
       <ToastContainer />

@@ -5,6 +5,7 @@ import ShopByCategory from '../ShopByCategory/ShopByCategory';
 import useTitle from '../../hook/useTitle';
 import Feautures from '../Extra/Feautures';
 import NewsLetter from '../Extra/NewsLetter';
+import Testimonial from '../Extra/Testimonial';
 
 const Home = () => {
     useTitle('Home')
@@ -15,6 +16,7 @@ const Home = () => {
             
             <Feautures></Feautures>
             <Gallery></Gallery>
+            <Testimonial></Testimonial>
             <NewsLetter></NewsLetter>
         </div>
     );

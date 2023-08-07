@@ -34,61 +34,62 @@ const ShopByCategory = () => {
     };
 
     return (
-        <div className='w-10/12 mx-auto py-12'>
+        <div className=' py-12 bg-teal-100'>
+            <div className='w-full md:w-10/12 mx-auto py-12'>
 
-            <h1 className='text-3xl font-bold text-zinc-600 text-center tracking-tighter uppercase py-12'>Shop by Category</h1>
-            <Tabs selectedTab={activeTab} onSelect={handleTabSelect}>
-                <TabList className="flex justify-center border-b border-teal-100">
-                    <Tab selectedClassName='bg-orange-500 text-white '
-                        className="text-orange-500 text-lg font-semibold py-2 px-16 
+                <h1 className='text-3xl font-bold text-zinc-600 text-center tracking-tighter uppercase py-12'>Shop by Category</h1>
+                <Tabs selectedTab={activeTab} onSelect={handleTabSelect}>
+                    <TabList className="flex justify-center border-b border-teal-100">
+                        <Tab selectedClassName='bg-orange-500 text-white '
+                            className="text-orange-500  text-sm md:text-lg font-semibold py-2 md:px-16 px-8
                         hover:text-white hover:bg-orange-400 cursor-pointer"
-                    >
-                        Sports Car
-                    </Tab>
-                    <Tab selectedClassName='bg-orange-500 text-white '
-                        className="text-orange-500 text-lg font-semibold py-2 px-16 
+                        >
+                            Sports Car
+                        </Tab>
+                        <Tab selectedClassName='bg-orange-500 text-white '
+                            className="text-orange-500 text-sm md:text-lg font-semibold py-2 md:px-16 px-8 
                         hover:text-white hover:bg-orange-400 cursor-pointer"
-                    >        Fire Truck
-                    </Tab>
-                    <Tab selectedClassName='bg-orange-500 text-white '
-                        className="text-orange-500 text-lg font-semibold py-2 px-16 
+                        >        Fire Truck
+                        </Tab>
+                        <Tab selectedClassName='bg-orange-500 text-white '
+                            className="text-orange-500 text-sm md:text-lg  font-semibold py-2 md:px-16 px-8
                         hover:text-white hover:bg-orange-400 cursor-pointer"
-                    >
-                        Police Car
-                    </Tab>
-                </TabList>
+                        >
+                            Police Car
+                        </Tab>
+                    </TabList>
 
-                <TabPanel>
-                    <div className='grid md:grid-cols-3 grid-cols-1 bg-blue-50 p-4 gap-2'>
-                        {tabData.slice(0,8).map((singleCar, index) => (
+                    <TabPanel>
+                        <div className='grid md:grid-cols-3 grid-cols-1 p-4 gap-2'>
+                            {tabData.slice(0, 6).map((singleCar, index) => (
 
-                            <SortedToy key={index} singleCar={singleCar} ></SortedToy>
+                                <SortedToy key={index} singleCar={singleCar} ></SortedToy>
 
-                        ))}
-                    </div>
-                </TabPanel>
-                <TabPanel>
-                    <div className='grid grid-cols-3 bg-blue-50 p-4 gap-2'>
-                        {tabData.map((singleCar, index) => (
+                            ))}
+                        </div>
+                    </TabPanel>
+                    <TabPanel>
+                        <div className='grid md:grid-cols-3 grid-cols-1  p-4 gap-2'>
+                            {tabData.slice(0, 6).map((singleCar, index) => (
 
-                            <SortedToy key={index} singleCar={singleCar} ></SortedToy>
+                                <SortedToy key={index} singleCar={singleCar} ></SortedToy>
 
-                        ))}
-                    </div>
-                </TabPanel>
-                <TabPanel>
-                    <div className='grid grid-cols-3 bg-blue-50 p-4 gap-2'>
-                        {tabData.map((singleCar, index) => (
+                            ))}
+                        </div>
+                    </TabPanel>
+                    <TabPanel>
+                        <div className='grid md:grid-cols-3 grid-cols-1  p-4 gap-2'>
+                            {tabData.slice(0, 6).map((singleCar, index) => (
 
-                            <SortedToy key={index} singleCar={singleCar} ></SortedToy>
+                                <SortedToy key={index} singleCar={singleCar} ></SortedToy>
 
-                        ))}
-                    </div>
-                </TabPanel>
-               
-            </Tabs>
+                            ))}
+                        </div>
+                    </TabPanel>
 
+                </Tabs>
 
+            </div>
         </div>
     );
 };

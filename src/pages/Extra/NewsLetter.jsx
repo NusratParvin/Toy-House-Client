@@ -8,10 +8,9 @@ const NewsLetter = () => {
                 <section class="mb-32 text-gray-800 text-center lg:text-left">
                     <div class="block rounded-lg shadow-lg bg-white">
                         <div class="flex flex-wrap items-center">
-                            <div class="grow-0 shrink-0 basis-auto hidden lg:flex lg:w-6/12 xl:w-4/12">
+                            <div class="grow-0 shrink-0 basis-auto  lg:flex w-full lg:w-6/12 xl:w-4/12">
                                 <img
                                     src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg"
-                                    alt="Trendy Pants and Shoes"
                                     class="w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg"
                                 />
                             </div>

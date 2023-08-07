@@ -62,8 +62,8 @@ const Register = () => {
     }
 
     return (
-        <div className='flex md:flex-row flex-col gap-4 w-2/3 mx-auto items-center' >
-            <div className="mt-4 mb-8 w-2/3">
+        <div className='flex md:flex-row flex-col gap-4 md:w-2/3 w-full mx-auto items-center' >
+            <div className="mt-4 mb-8 md:w-2/3 w-full">
                 <div className="w-full mx-auto py-8">
                     <div className=" w-11/12 mx-auto rounded shadow">
 
@@ -125,9 +125,9 @@ const Register = () => {
                         }
 
                                 </div>
-                                <div class="mb-4 mx-auto">
+                                <div class="mb-4 mx-auto text-center">
                                     <button
-                                        class="mb-2 mx-16  py-2 px-24 uppercase
+                                        class="mb-2 md:mx-16 py-2 md:px-24 px-8 uppercase
                                         text-base font-semibold  text-zinc-100 
                                          bg-gradient-to-tr from-teal-700 to-teal-400
 
